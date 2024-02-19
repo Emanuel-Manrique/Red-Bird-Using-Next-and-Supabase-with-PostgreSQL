@@ -1,11 +1,11 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import GitHubButton from "../../components/login/github-button";
+import GitHubButton from "../../components/Login/GithubButton";
 
 export const dynamic = "force-dynamic";
 
-export default async function Login() {
+export default async function Login(): Promise<JSX.Element> {
   const supabase = createServerComponentClient<Database>({ cookies });
 
   const {

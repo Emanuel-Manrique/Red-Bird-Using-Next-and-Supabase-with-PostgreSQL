@@ -1,6 +1,6 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import AuthButtonClient from "./auth-button-client";
+import AuthButtonClient from "./AuthButtonClient";
 
 export const dynamic = "force-dynamic";
 

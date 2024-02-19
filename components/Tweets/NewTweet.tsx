@@ -14,7 +14,7 @@ export default function NewTweet({ user }: { user: User }) {
   };
 
   return (
-    <form className="border border-gray-800 border-t-0" action={addTweet}>
+    <form className="border border-gray-800 border-t-0 text-white" action={addTweet}>
       <div className="flex py-8 px-4">
         <div className="h-12 w-12">
           <Image
