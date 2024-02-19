@@ -4,13 +4,15 @@ import AuthButtonServer from "../components/Buttons/AuthButtonServer";
 import { redirect } from "next/navigation";
 import NewTweet from "../components/Tweets/NewTweet";
 import Tweets from "@/components/Tweets";
+import { Session } from "@supabase/supabase-js";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const supabase = createServerComponentClient<Database>({ cookies });
 
-  let session;
+  let session: Session | null = null;
+
   try {
     const result = await supabase.auth.getSession();
     session = result.data?.session;
@@ -55,7 +57,7 @@ export default async function Home() {
       // If such a 'like' object is found, 'find' returns it (which is truthy), otherwise it returns 'undefined' (which is falsy).
       // The double NOT '!!' operator is used to convert this truthy or falsy value to a boolean.
       user_has_liked_tweet: !!tweet.likes.find(
-        (like) => like.user_id === session.user.id
+        (like) => session && session.user && like.user_id === session.user.id
       ),
 
       // Get the number of likes for the tweet based on the amount of people that liked it.
