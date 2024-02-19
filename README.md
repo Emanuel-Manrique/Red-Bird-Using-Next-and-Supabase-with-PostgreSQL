@@ -39,7 +39,7 @@ To get started with this project, you will need the following:
 Once you have the prerequisites installed, you can clone the project repository and install the dependencies:
 
 ```
-git clone https://github.com/your-username/nextjs-twitter-clone.git
+git clone https://github.com/Emanuel-Manrique/red-bird
 cd nextjs-twitter-clone
 npm install
 ```
